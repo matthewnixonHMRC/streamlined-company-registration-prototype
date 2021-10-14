@@ -1,5 +1,9 @@
 # Unreleased
 
+## Fixes
+
+- [Pull request #1118: Fix code sample accessibility issues](https://github.com/alphagov/govuk-prototype-kit/pull/1118)
+
 # 9.15.0 (Feature release)
 
 ## New features
