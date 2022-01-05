@@ -1,7 +1,7 @@
 {% extends "layouts/_BASE.html" %}
 
 {% block service %}
-    <form>
+    <form action="loan-payments-dividends" method="POST">
         {% set details %}
             <p>This is when the company starts buying or selling goods or services, even if it's not yet making a profit.</p>
             {{ govukInsetText({

@@ -1,7 +1,7 @@
 {% extends "layouts/_BASE.html" %}
 
 {% block service %}
-    <form action="other-business-address" method="POST">
+    <form action="home-address" method="POST">
 
         {% call govukFieldset({
           legend: {
@@ -11,7 +11,7 @@
           }
         }) %}
           <p>If you're changing:</p>
-          <ul>
+          <ul class="govuk-list govuk-list--bullet"> 
             <li>your sole trader business into a limited company, give your own name</li>
             <li>a business partnership into a limited company, give the nominated partner's name</li>
           </ul>

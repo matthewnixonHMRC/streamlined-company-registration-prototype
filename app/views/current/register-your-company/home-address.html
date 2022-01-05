@@ -1,32 +1,26 @@
 {% extends "layouts/_BASE.html" %}
 
 {% block service %}
-    <form>
-        {% set gateway %}
-            <p>We will sign you out so you can create a new Government Gateway user ID for this company.</p>
-        {% endset -%}
+    <form action="stub-companies-house" method="POST">
 
         {{ govukRadios({
             idPrefix: "where-do-you-live",
             name: "where-do-you-live",
             fieldset: {
               legend: {
-                text: "Are you starting a new application?",
+                text: "What is [business owner]'s home address?",
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--l"
               }
             },
             items: [
                 {
-                    value: "Yes~eligibility-for-setting-up-company/check-before-you-start",
-                    text: "Yes",
-                    conditional: {
-                        html: gateway
-                    }
+                    value: "14 St Test Walk, Testley, Testford, Testshire, TE1 1ST, UK~when-start-business",
+                    text: "14 St Test Walk, Testley, Testford, Testshire, TE1 1ST, UK"
                 },
                 {
-                    value: "No - I already started one~registration-email",
-                    text: "No - I already started one"
+                    value: "A different address",
+                    text: "A different address"
                 }
             ]
         }) }}
