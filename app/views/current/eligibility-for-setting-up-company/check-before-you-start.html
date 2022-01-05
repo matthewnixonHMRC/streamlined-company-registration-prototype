@@ -1,0 +1,18 @@
+{% extends "layouts/_BASE.html" %}
+
+{% block service %}
+    <form action="card-paypal" method="POST">
+        <h1 class="govuk-heading-l">Check before you start</h1>
+        <p>We're going to ask some questions. Your answers will:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>show whether you can use this service to register a limited company and set up Corporation Tax</li>
+            <li>take you to another service if you're not eligible to use this one</li>
+        </ul>
+
+        {{ govukButton({
+            text: "Continue to questions"
+        }) }}
+    </form>
+
+    <p><a href="">Is this page not working properly?</a></p>
+{% endblock %}

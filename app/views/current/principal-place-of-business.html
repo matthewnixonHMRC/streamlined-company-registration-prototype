@@ -1,0 +1,48 @@
+{% extends "layouts/_BASE.html" %}
+
+{% block service %}
+    <form>
+        {% set details %}
+            <p>This is where the company will carry out most of its business activities.</p>
+            <p>If this will be in different locations, use the address where the company will keep its financial or business records.</p>
+            {{ govukInsetText({
+                text: "This address will not go on the public record."
+            }) }}
+            {{ govukDetails({
+                summaryText: "The company doesn't have a principal place of business yet",
+                text: "Use the company's registered office address for now and tell HMRC when it changes."
+            }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+            idPrefix: "where-do-you-live",
+            name: "email-address",
+            fieldset: {
+              legend: {
+                text: "What is the company's 'principal place of business'?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+                html: details
+            },
+            items: [
+                {
+                    value: "14 St Test Walk, Testley, Testford, Testshire, TE1 1ST, UK~contact-about-corporation-tax",
+                    text: "14 St Test Walk, Testley, Testford, Testshire, TE1 1ST, UK"
+                },
+                {
+                    value: "A different address~lookup-address/lookup-address",
+                    text: "A different address"
+                }
+            ]
+        }) }}
+
+        {{ govukButton({
+            text: "Save and continue"
+        }) }}
+    </form>
+
+    <p><a href="">Is this page not working properly?</a></p>
+{% endblock %}

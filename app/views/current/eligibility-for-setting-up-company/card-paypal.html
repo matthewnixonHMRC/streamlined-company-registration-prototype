@@ -1,0 +1,37 @@
+{% extends "layouts/_BASE.html" %}
+
+{% block service %}
+    <form>
+        {{ govukRadios({
+        classes: "govuk-radios--inline",
+        idPrefix: "changed-name",
+        name: "changed-name",
+        fieldset: {
+          legend: {
+            text: "Are you able to pay for this application using a card or PayPal?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "We only accept card or PayPal payments on this service."
+        },
+        items: [
+          {
+            value: "yes~secure-register-form",
+            text: "Yes"
+          },
+          {
+            value: "no~../end",
+            text: "No"
+          }
+        ]
+    }) }}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+    </form>
+
+    <p><a href="">Is this page not working properly?</a></p>
+{% endblock %}

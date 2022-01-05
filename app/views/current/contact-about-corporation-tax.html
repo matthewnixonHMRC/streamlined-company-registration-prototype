@@ -1,0 +1,57 @@
+{% extends "layouts/_BASE.html" %}
+
+{% block service %}
+    <form action="replacing-another-business" method="POST">
+
+        {% call govukFieldset({
+          legend: {
+            text: "Give us one or more ways to contact Company Name Ltd",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) %}
+
+        <p>We will only do this if we have questions about the company's Corporation Tax.</p>
+
+          {{ govukInput({
+            label: {
+              text: "Contact number"
+            },
+            hint: {
+              text: "Give a mobile number, if you have one"
+            },
+            classes: "govuk-input--width-20",
+            id: "address-line-1",
+            name: "address-line-1",
+            autocomplete: "address-line1"
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Email address"
+            },
+            classes: "govuk-input--width-20",
+            id: "address-line-2",
+            name: "address-line-2",
+            autocomplete: "address-line2"
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Other contact number"
+            },
+            classes: "govuk-input--width-20",
+            id: "address-town",
+            name: "address-town",
+            autocomplete: "address-level2"
+          }) }}
+
+        {% endcall %}
+
+        {{ govukButton({
+            text: "Save and continue"
+        }) }}
+    </form>
+
+    <p><a href="">Is this page not working properly?</a></p>
+{% endblock %}

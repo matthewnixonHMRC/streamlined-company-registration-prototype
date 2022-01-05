@@ -1,0 +1,40 @@
+{% extends "layouts/_BASE.html" %}
+
+{% block service %}
+    <form>
+        {% set gateway %}
+            <p>We will sign you out so you can create a new Government Gateway user ID for this company.</p>
+        {% endset -%}
+
+        {{ govukRadios({
+            idPrefix: "where-do-you-live",
+            name: "where-do-you-live",
+            fieldset: {
+              legend: {
+                text: "Are you starting a new application?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+                {
+                    value: "Yes~eligibility-for-setting-up-company/check-before-you-start",
+                    text: "Yes",
+                    conditional: {
+                        html: gateway
+                    }
+                },
+                {
+                    value: "No - I already started one~registration-email",
+                    text: "No - I already started one"
+                }
+            ]
+        }) }}
+
+        {{ govukButton({
+            text: "Save and continue"
+        }) }}
+    </form>
+
+    <p><a href="">Is this page not working properly?</a></p>
+{% endblock %}

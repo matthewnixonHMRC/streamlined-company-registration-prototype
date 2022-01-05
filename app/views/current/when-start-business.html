@@ -1,0 +1,73 @@
+{% extends "layouts/_BASE.html" %}
+
+{% block service %}
+    <form>
+        {% set details %}
+            <p>This is when the company starts buying or selling goods or services, even if it's not yet making a profit.</p>
+            {{ govukInsetText({
+              text: "The company must keep financial records from this date (which is the start of its first accounting period for Corporation Tax)."
+            }) }}
+        {% endset -%}
+
+        
+        {% set date %}
+            {{ govukDateInput({
+              id: "passport-issued",
+              namePrefix: "passport-issued",
+              fieldset: {
+                legend: {
+                  text: "Enter a date at least 3 working days from now and no more than 3 years in the future."
+                }
+              },
+              hint: {
+                text: "For example, 29 03 2022"
+              }
+            }) }}
+        {% endset -%}
+
+        {% set hint %}
+            <p>If your completed application is approved, you will get a letter explaining how to tell HMRC when the company becomes active.</p>
+        {% endset -%}
+
+        {{ govukRadios({
+            idPrefix: "where-do-you-live",
+            name: "where-do-you-live",
+            fieldset: {
+              legend: {
+                text: "When will the company start trading?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+              html: details
+            },
+            items: [
+                {
+                    value: "On the same date it gets set up",
+                    text: "On the same date it gets set up"
+                },
+                {
+                    value: "On a different future date",
+                    text: "On a different future date",
+                    conditional: {
+                        html: date
+                    }
+                },
+                {
+                    value: "No plans to start trading or do a business activity yet",
+                    text: "No plans to start trading or do a business activity yet",
+                    conditional: {
+                        html: hint
+                    }
+                }
+            ]
+        }) }}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+    </form>
+
+    <p><a href="">Is this page not working properly?</a></p>
+{% endblock %}

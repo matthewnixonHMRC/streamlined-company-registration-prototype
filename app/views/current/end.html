@@ -1,0 +1,15 @@
+{% extends "layouts/_BASE.html" %}
+
+{% block service %}
+    <form action="payment" method="POST">
+        <h1 class="govuk-heading-l">You cannot set up a company with this service</h1>
+        <p>To use this service, you need to pay for the application using a card or PayPal.</p>
+        
+
+        {{ govukButton({
+            text: "Use other service"
+        }) }}
+    </form>
+
+    <p><a href="">Is this page not working properly?</a></p>
+{% endblock %}

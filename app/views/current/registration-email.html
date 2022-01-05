@@ -1,0 +1,53 @@
+{% extends "layouts/_BASE.html" %}
+
+{% block service %}
+    <form action="relationship-to-company" method="POST">
+        {% set hint %}
+            <p>We will use this email address to create an account for you with Companies House so you can use the services they provide. We will also send you updates and confirmation emails about your registration.</p>
+        {% endset -%}
+
+        {% set email %}
+            {{ govukInput({
+                label: {
+                  text: "Enter the email address"
+                },
+                classes: "govuk-input--width-20",
+                id: "email-address",
+                name: "email-address"
+            }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+            idPrefix: "where-do-you-live",
+            name: "email-address",
+            fieldset: {
+              legend: {
+                text: "Which email address do you want to use for this application?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+                html: hint
+            },
+            items: [
+                {
+                    value: "user@test.com",
+                    text: "user@test.com"
+                },
+                {
+                    text: "A different email address",
+                    conditional: {
+                        html: email
+                    }
+                }
+            ]
+        }) }}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+    </form>
+
+    <p><a href="">Is this page not working properly?</a></p>
+{% endblock %}

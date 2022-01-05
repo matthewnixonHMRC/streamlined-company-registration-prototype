@@ -1,0 +1,55 @@
+{% extends "layouts/_BASE.html" %}
+
+{% block service %}
+    <form action="stub-companies-house" method="POST">
+        {% set other %}
+            {{ govukInput({
+                label: {
+                  text: "Enter your relationship to the company"
+                },
+                classes: "govuk-input--width-20",
+                id: "email-address",
+                name: "email-address"
+            }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+            idPrefix: "where-do-you-live",
+            name: "where-do-you-live",
+            fieldset: {
+              legend: {
+                text: "What is your relationship to the company?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+                {
+                    value: "Company director",
+                    text: "Company director"
+                },
+                {
+                    value: "Company secretary",
+                    text: "Company secretary"
+                },
+                {
+                    value: "Agent - for example, an accountant",
+                    text: "Agent - for example, an accountant"
+                },
+                {
+                    value: "Other - for example, a friend of the director",
+                    text: "Other - for example, a friend of the director",
+                    conditional: {
+                        html: other
+                    }
+                }
+            ]
+        }) }}
+
+        {{ govukButton({
+            text: "Save and continue"
+        }) }}
+    </form>
+
+    <p><a href="">Is this page not working properly?</a></p>
+{% endblock %}

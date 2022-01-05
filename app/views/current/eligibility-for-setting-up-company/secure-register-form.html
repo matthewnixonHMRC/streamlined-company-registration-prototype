@@ -1,0 +1,46 @@
+{% extends "layouts/_BASE.html" %}
+
+{% block service %}
+    <form>
+        {% set details %}
+            <p>The secure register is for victims of threatening behaviour or violence who cannot risk having their home address information on the public register.</p>
+            {{ govukDetails({
+              summaryText: "What is a 'person in significant control'?",
+              text: "This is someone who has substantial influence over the way the company is run, for example anyone with more than 25% shares or voting rights."
+            }) }}
+        {% endset -%}
+
+        
+        {{ govukRadios({
+        classes: "govuk-radios--inline",
+        idPrefix: "changed-name",
+        name: "changed-name",
+        fieldset: {
+          legend: {
+            text: "Are any directors or 'persons with significant control' on the Companies House secure register?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          html: details
+        },
+        items: [
+          {
+            value: "yes~end-already-on-register",
+            text: "Yes"
+          },
+          {
+            value: "no~set-up-company",
+            text: "No"
+          }
+        ]
+    }) }}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+    </form>
+
+    <p><a href="">Is this page not working properly?</a></p>
+{% endblock %}

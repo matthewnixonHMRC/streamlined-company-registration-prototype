@@ -1,0 +1,44 @@
+{% extends "layouts/_BASE.html" %}
+
+{% block service %}
+    <form action="stub-companies-house" method="POST">
+        {% set hint %}
+            <p>If [company] is:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>a company, use the address that's on its Companies House record</li>
+                <li>a sole trader or business partnership, use the address that it has registered for Income Tax</li>
+            <ul>
+        {% endset -%}
+
+        {{ govukRadios({
+            idPrefix: "where-do-you-live",
+            name: "where-do-you-live",
+            fieldset: {
+              legend: {
+                text: "What is [company]'s address?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+                html: hint
+            },
+            items: [
+                {
+                    value: "14 St Test Walk, Testley, Testford, Testshire, TE1 1ST, UK~who-agreed-address",
+                    text: "14 St Test Walk, Testley, Testford, Testshire, TE1 1ST, UK"
+                },
+                {
+                    value: "A different address",
+                    text: "A different address"
+                }
+            ]
+        }) }}
+
+        {{ govukButton({
+            text: "Save and continue"
+        }) }}
+    </form>
+
+    <p><a href="">Is this page not working properly?</a></p>
+{% endblock %}
