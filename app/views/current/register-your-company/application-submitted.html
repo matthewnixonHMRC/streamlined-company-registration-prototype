@@ -1,0 +1,55 @@
+{% extends "layouts/_BASE-NO-BACK.html" %}
+
+
+{% block service %}
+<style>
+  .grey {
+    background-color: grey;
+    margin: 0 0 1em 0;
+    padding: 3em 1em;
+    color: white;
+    background: #6f777b;
+    text-align: center;
+  }
+
+  .grey .govuk-panel__title {
+    font-size: 36px;
+  }
+</style>
+
+    <form action="company-registration-overview" method="POST">
+        {{ govukPanel({
+          titleText: "Application submitted",
+          classes: "grey"
+        }) }}
+
+        <p>You've just applied to set up a limited company and register it for Corporation Tax. Your application reference numbers are:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li><strong>000-434-1059112</strong> (for the application to set up the company)</li>
+          <li><strong>BRCT00000580932</strong> (for the application to register for Corporation Tax)</li>
+        </ul>
+        <p>We will email these to you.</p>
+
+        <h2 class="govuk-heading-m">What happens next</h2>
+
+        <p>If your application is successful, we'll send you:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>another email within 2 working days or 5 working days for a CIC letting you know the outcome of your application</li>
+          <li>a letter with instructions on how to access the company's Corporation Tax online</li>
+          <li>another letter within 15 working days with the company's Unique Taxpayer Reference (UTR)</li>
+        </ul>
+
+        {{ govukInsetText({
+          text: "Keep the company's UTR safe, you'll need it to file Company Tax Returns."
+        }) }}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+    </form>
+
+    <p><a href="">Give us feedback on this service</a> (survey takes about a minute).</p>
+    <p><a href="">Is this page not working properly?</a></p>
+{% endblock %}

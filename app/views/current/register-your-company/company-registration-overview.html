@@ -1,0 +1,52 @@
+{% extends "layouts/_BASE.html" %}
+
+{% block service %}
+    <form action="stub-companies-house-3" method="POST">
+        <h1 class="govuk-heading-l">Company registration overview</h1>
+
+        <h2 class="govuk-heading-m">Incorporation</h2>
+        <table class="govuk-table">
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Status:</td>
+              <td class="govuk-table__cell">Pending</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Submission date:</td>
+              <td class="govuk-table__cell">5 January 2022</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Reference number:</td>
+              <td class="govuk-table__cell">000-434-1059112</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Payment reference:</td>
+              <td class="govuk-table__cell">PAY_REF-123456789</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td colspan="2" class="govuk-table__cell">If your application is successful we'll send you an email with the company registration number and certificate within 2 working days of the submission date.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 class="govuk-heading-m">Corporation Tax</h2>
+        <table class="govuk-table">
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Status:</td>
+              <td class="govuk-table__cell">Pending</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Reference number:</td>
+              <td class="govuk-table__cell">BRCT00000580932</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td colspan="2" class="govuk-table__cell">We've received your application but can't process it until we've set up the limited company.</td>
+            </tr>
+          </tbody>
+        </table>
+
+    </form>
+
+    <p><a href="">Is this page not working properly?</a></p>
+{% endblock %}
