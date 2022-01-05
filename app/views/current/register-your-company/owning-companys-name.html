@@ -1,0 +1,50 @@
+{% extends "layouts/_BASE.html" %}
+
+{% block service %}
+    <form>
+        {% set company %}
+            {{ govukInput({
+                label: {
+                  text: "Enter the company name"
+                },
+                classes: "govuk-input--width-20",
+                id: "width-20",
+                name: "width-20"
+            }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+            idPrefix: "where-do-you-live",
+            name: "email-address",
+            fieldset: {
+              legend: {
+                text: "What is the name of the owning company?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+                html: details
+            },
+            items: [
+                {
+                    value: "big company~owning-companys-address",
+                    text: "big company"
+                },
+                {
+                    value: "something else",
+                    text: "something else",
+                    conditional: {
+                        html: company
+                    }
+                }
+            ]
+        }) }}
+
+        {{ govukButton({
+            text: "Save and continue"
+        }) }}
+    </form>
+
+    <p><a href="">Is this page not working properly?</a></p>
+{% endblock %}

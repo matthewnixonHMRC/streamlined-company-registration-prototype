@@ -1,0 +1,44 @@
+{% extends "layouts/_BASE.html" %}
+
+{% block service %}
+    <form action="stub-companies-house-1" method="POST">
+        {% set hint %}
+            <p>This can be the parent company if it is in the same group as Company Name Ltd.</p>
+            {{ govukDetails({
+                summaryText: "What is group relief?",
+                text: "Any company that is a member of a group for group relief purposes may claim or surrender losses and other amounts to or from other members of that group to reduce their Corporation Tax liability."
+            }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+            idPrefix: "where-do-you-live",
+            name: "email-address",
+            fieldset: {
+              legend: {
+                text: "For Corporation Tax, will Company Name Ltd be in the same group for group relief purposes as the company that owns it?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+                html: hint
+            },
+            items: [
+                {
+                    value: "Yes~owning-companys-name",
+                    text: "Yes"
+                },
+                {
+                    value: "No",
+                    text: "No"
+                }
+            ]
+        }) }}
+
+        {{ govukButton({
+            text: "Save and continue"
+        }) }}
+    </form>
+
+    <p><a href="">Is this page not working properly?</a></p>
+{% endblock %}

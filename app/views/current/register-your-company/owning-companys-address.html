@@ -1,0 +1,40 @@
+{% extends "layouts/_BASE.html" %}
+
+{% block service %}
+    <form>
+        {% set details %}
+            <p>This is the address on its Companies House public record.</p>
+        {% endset -%}
+
+        {{ govukRadios({
+            idPrefix: "where-do-you-live",
+            name: "email-address",
+            fieldset: {
+              legend: {
+                text: "What is big company's registered office address?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+                html: details
+            },
+            items: [
+                {
+                    value: "11 Add L1, Add L2, London, ZZ1 1ZZ, United Kingdom~owning-companys-utr",
+                    text: "11 Add L1, Add L2, London, ZZ1 1ZZ, United Kingdom"
+                },
+                {
+                    value: "A different address",
+                    text: "A different address"
+                }
+            ]
+        }) }}
+
+        {{ govukButton({
+            text: "Save and continue"
+        }) }}
+    </form>
+
+    <p><a href="">Is this page not working properly?</a></p>
+{% endblock %}

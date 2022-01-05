@@ -1,0 +1,57 @@
+{% extends "layouts/_BASE.html" %}
+
+{% block service %}
+    <form action="stub-companies-house-2" method="POST">
+        {% set details %}
+            <p>It is a 10-digit number and will be on any tax returns or documents from HMRC. It might be called a 'company tax reference'.</p>
+        {% endset -%}
+
+        {% set utr %}
+            {{ govukInput({
+                label: {
+                  text: "Enter the UTR"
+                },
+                hint: {
+                    text: "For example, 1234567890"
+                },
+                classes: "govuk-input--width-20",
+                id: "width-20",
+                name: "width-20"
+            }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+            idPrefix: "where-do-you-live",
+            name: "email-address",
+            fieldset: {
+              legend: {
+                text: "Do you know big company's Unique Taxpayer Reference (UTR)?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+                html: details
+            },
+            items: [
+                {
+                    value: "Yes",
+                    text: "Yes",
+                    conditional: {
+                        html: utr
+                    }
+                },
+                {
+                    value: "No",
+                    text: "No"
+                }
+            ]
+        }) }}
+
+        {{ govukButton({
+            text: "Save and continue"
+        }) }}
+    </form>
+
+    <p><a href="">Is this page not working properly?</a></p>
+{% endblock %}
